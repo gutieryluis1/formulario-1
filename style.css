@@ -1,0 +1,99 @@
+/*criamos essa root para armazenar todas as cores do form*/
+:root{
+    --color-white: #fff;
+    --color-red: #e63636;
+    --color-dark1: #181818;
+    --color-dark2: #1e1e1e;
+    --color-purple1: #9333ff;
+    --color-purple2: indigo;
+}
+/*reseta todos os espaçamentos e as margens*/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: arial;
+    background-color: var(--color-dark1);/*pra chamar uma das variáveis armazenadas na root no início do arquivo, é só chamar o nome var() e dentro do parênteses, adicionar o nome da variável.*/
+    color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.content{
+    background-color: var(--color-dark2);
+    padding: 2rem;
+    border-radius: 10px;
+    min-width: 30%;
+    overflow: auto;/*possibilita a navegação do scroll dentro da div*/
+}
+
+h1{
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.content form{
+    display: flex;
+    flex-direction: column;/*flexbox em formato de coluna. Coloca tudo em uma caixa*/
+    gap: 1rem;
+}
+
+.span-required{
+    display: none;
+    font-size: 12px;
+    margin: 3px 0 0 2px;
+    color: var(--color-red);
+}
+
+.inputs{
+    padding: 8px 5px;/*estica pra cima e pra baixo, e depois pra os lados*/
+    outline: none;/*remove linha dos inputs*/
+    border-radius: 5px;
+    background-color: var(--color-dark1);
+    border: 2px solid var(--color-dark1);
+    color: var(--color-white);
+    width: 100%;
+    box-sizing: border-box;/*ele vai ocupar 100% da largura e vai ignorar todos os espaços*/
+    transition: .3s;
+}
+
+.inputs:focus{
+    border-color: var(--color-purple1);
+}
+
+.box-select{
+    display: flex;
+    justify-content: space-between;/*vão se aglomerar nas extremidades(bordas)*/
+    font-weight: bold;
+    gap: 1rem;
+}
+
+button[type="submit"]{
+    /*ele chama todos os botões que tem o tipo "submit"*/
+    padding: 1rem;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    background-color: var(--color-purple2);
+    color: var(--color-white);
+    cursor: pointer;
+    transition: .3s;
+}
+
+button[type="submit"]:hover{/*esse hover, ele faz uma ação que já foi premeditada na transição acima*/
+    background-color: var(--color-purple1);
+}
+/*A linha de comando abaixo, serve para adequar o formulário a dispositivos com tela abaixo de 576px de resolução*/
+@media screen and (max-width: 576px){
+    .box-select{
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+}
